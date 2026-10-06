@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>堀野大悟 | Official Website</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   "Helvetica Neue", sans-serif;
+      color: #222;
+      overflow-x: hidden;
+
+      background: linear-gradient(
+        -45deg,
+        #fff1f7,
+        #e8f4ff,
+        #f1e9ff,
+        #fff6df
+      );
+
+      background-size: 400% 400%;
+      animation: backgroundMove 12s ease infinite;
+    }
+
+    /* 背景 */
+
+    @keyframes backgroundMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* トップ */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .mini {
+      font-size: 14px;
+      letter-spacing: 4px;
+      color: #777;
+
+      animation: appear 1s ease;
+    }
+
+    h1 {
+      font-size: clamp(50px, 10vw, 90px);
+
+      margin: 15px 0 10px;
+
+      letter-spacing: -3px;
+
+      animation: appear 1s ease 0.15s both;
+    }
+
+    .hello {
+      font-size: clamp(20px, 4vw, 28px);
+
+      line-height: 1.7;
+
+      animation: appear 1s ease 0.3s both;
+    }
+
+    /* プロフィール */
+
+    .profile {
+      width: min(700px, 90%);
+
+      margin-top: 50px;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+
+      animation: appear 1s ease 0.5s both;
+    }
+
+    .card {
+      padding: 30px 20px;
+
+      background: rgba(255, 255, 255, 0.55);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border: 1px solid rgba(255,255,255,0.8);
+
+      border-radius: 28px;
+
+      box-shadow:
+        0 15px 40px rgba(0,0,0,0.06);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+
+      box-shadow:
+        0 25px 60px rgba(0,0,0,0.10);
+    }
+
+    .emoji {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 21px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #666;
+    }
+
+    /* ボタン */
+
+    .button {
+      display: inline-block;
+
+      margin-top: 40px;
+
+      padding: 15px 28px;
+
+      background: #111;
+      color: white;
+
+      border-radius: 100px;
+
+      text-decoration: none;
+      font-weight: 600;
+
+      transition: 0.25s;
+
+      animation: appear 1s ease 0.7s both;
+    }
+
+    .button:hover {
+      transform: scale(1.07);
+    }
+
+    /* 下 */
+
+    footer {
+      text-align: center;
+      padding: 30px;
+
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* 登場アニメーション */
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* スマホ */
+
+    @media (max-width: 600px) {
+
+      .profile {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+    }
+
+    .profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+
+  margin-top: 25px;
+
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+  transition: 0.3s;
+  animation: appear 1s ease 0.1s both;
+}
+
+.profile-image:hover {
+  transform: scale(1.08) rotate(3deg);
+}
+
+#ufo {
+  position: fixed;
+  top: 20%;
+  left: -150px;
+
+  font-size: 90px;
+
+  z-index: 9999;
+  pointer-events: none;
+}
+
+#ufo.fly {
+  animation: ufoFly 2.5s ease-in-out;
+}
+
+@keyframes ufoFly {
+  0% {
+    left: -150px;
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(10deg) scale(1.3);
+  }
+
+  100% {
+    left: 110%;
+    transform: rotate(-10deg);
+  }
+}
+
+/* Apple Collection */
+
+.apple-section {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.apple-title {
+  font-size: clamp(40px, 7vw, 70px);
+  margin: 15px 0 5px;
+}
+
+.apple-subtitle {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 45px;
+}
+
+.apple-grid {
+  width: min(1000px, 95%);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 30px;
+
+  padding: 45px 25px;
+
+  box-shadow: 0 15px 50px rgba(0,0,0,0.07);
+
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow: 0 25px 70px rgba(0,0,0,0.12);
+}
+
+.product-icon {
+  font-size: 65px;
+  margin-bottom: 25px;
+}
+
+.product-type {
+  font-size: 12px;
+  letter-spacing: 3px;
+
+  color: #888;
+
+  text-transform: uppercase;
+}
+
+.product-card h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.product-card p {
+  color: #666;
+  line-height: 1.7;
+}
+
+
+/* スマホ */
+
+@media (max-width: 750px) {
+
+  .apple-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+
+    <div class="mini">
+      WELCOME TO MY WEBSITE
+    </div>
+
+    <h1>
+      堀野大悟
+    </h1>
+
+    <div class="hello">
+      にょっす🖐️<br>
+      大悟です
+    </div>
+
+    <div class="profile">
+
+      <div class="card" onclick="alienMode()">
+
+        <div class="emoji">
+          👽
+        </div>
+
+        <h2>
+          実は宇宙人
+        </h2>
+
+        <p>
+          地球でひっそり生活しています。
+        </p>
+
+      </div>
+
+
+      <div class="card" onclick="showApple()">
+
+        <div class="emoji">
+          🍎
+        </div>
+
+        <h2>
+          Apple
+        </h2>
+
+        <p>
+          最近Apple製品買いました。
+        </p>
+
+      </div>
+
+    </div>
+
+    <a class="button" href="#more">
+      もっと見る ↓
+    </a>
+
+  </section>
+
+  <section id="apple" class="apple-section">
+
+  <div class="mini">
+    MY APPLE
+  </div>
+
+  <h1 class="apple-title">
+    Apple Collection 🍎
+  </h1>
+
+  <p class="apple-subtitle">
+    最近Apple製品買いました。
+  </p>
+
+  <div class="apple-grid">
+
+    <div class="product-card">
+      <div class="product-icon">📱</div>
+
+      <div class="product-type">
+        iPhone
+      </div>
+
+      <h2>iPhone 18 Pro Max</h2>
+
+      <p>
+        256GB<br>
+        Burgundy
+      </p>
+    </div>
+
+
+    <div class="product-card">
+      <div class="product-icon">⌚</div>
+
+      <div class="product-type">
+        Apple Watch
+      </div>
+
+      <h2>Apple Watch Series 12</h2>
+
+      <p>
+        Nike · 42mm<br>
+        Nikeスポーツバンド
+      </p>
+    </div>
+
+
+    <div class="product-card">
+      <div class="product-icon">🎧</div>
+
+      <div class="product-type">
+        AirPods
+      </div>
+
+      <h2>AirPods Pro 3</h2>
+
+      <p>
+        MUSIC EVERYWHERE.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+  <section id="more" class="hero">
+
+    <div>
+
+      <div class="mini">
+        ABOUT ME
+      </div>
+
+      <img src="profile.jpg" class="profile-image" alt="プロフィール画像">
+
+      <h1>
+        Hello 👋
+      </h1>
+
+      <div class="hello">
+        ここからもっと<br>
+        プロフィールを追加予定。
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    © 2026 DAIGO
+  </footer>
+
+  <div id="ufo">🛸</div>
+
+<script>
+  function alienMode() {
+    const ufo = document.getElementById("ufo");
+
+    ufo.classList.remove("fly");
+    void ufo.offsetWidth;
+    ufo.classList.add("fly");
+  }
+
+  function showApple() {
+  document
+    .getElementById("apple")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
